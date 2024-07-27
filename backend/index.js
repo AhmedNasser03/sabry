@@ -1,15 +1,18 @@
 const express = require('express');
 const swaggerDocs = require('./swagger/swaggerConfig');
+const dotenv = require('dotenv');
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
 
-
 // Middleware
-app.use(express.json({ extended: false }));
+app.use(express.json());
 
 // Routes
-app.use('/api/News', require('./routes/newsRouter'));
-app.use('/api/Articles', require('./routes/articlesRouter'));
+app.use('/api/news', require('./routes/newsRouter'));
+app.use('/api/articles', require('./routes/articleRouter')); // Ensure this path matches the file name
 
 // Swagger Documentation
 swaggerDocs(app);
