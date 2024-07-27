@@ -1,5 +1,5 @@
 const express = require('express');
-const { createArticle } = require('../controllers/ArticleController');
+const { createArticle } = require('../controllers/articleController'); // Ensure this path matches the file name
 const router = express.Router();
 
 /**
@@ -10,9 +10,9 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/Articles/create-article:
+ * /api/articles/create-article:
  *   post:
- *     summary: Create a new article
+ *     summary: Create a new message
  *     tags: [Articles]
  *     requestBody:
  *       required: true
@@ -21,7 +21,7 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               title:
+ *               message:
  *                 type: string
  *     responses:
  *       201:
